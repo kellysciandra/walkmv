@@ -1,24 +1,18 @@
 import React, { useState } from 'react'
 
 
-class MenuItem extends React.Component{
-    constructor(props){
-      super(props);
-      this.state = {
-        hover:false,
-      }
-    }
-    
-    handleHover(){
-      this.setState({hover:!this.state.hover});
-    }
-    
-    render(){
-      const styles={
+const MenuItem = (props) => {
+    const [hover, setHover] = useState(false)
+
+    const handleHover = () => {
+        setHover(!hover)
+    };
+
+    const styles={
         container: {
           opacity: 0,
           animation: '1s appear forwards',
-          animationDelay:this.props.delay,
+          animationDelay: props.delay,
   
         },
         menuItem:{
@@ -27,10 +21,10 @@ class MenuItem extends React.Component{
           padding: '1rem 0',
           margin: '0 5%',
           cursor: 'pointer',
-          color: this.state.hover? 'gray':'#fafafa',
+          color: hover? 'gray':'#fafafa',
           transition: 'color 0.2s ease-in-out',
           animation: '0.5s slideIn forwards',
-          animationDelay:this.props.delay,
+          animationDelay: props.delay,
   
         },
         line: {
@@ -39,22 +33,26 @@ class MenuItem extends React.Component{
           background: 'gray',
           margin: '0 auto',
           animation: '0.5s shrink forwards',
-          animationDelay:this.props.delay,
+          animationDelay: props.delay,
           
         }
       }
-      return(
+
+    return <>
         <div style={styles.container}>
-          <div 
+        <div 
             style={styles.menuItem} 
-            onMouseEnter={()=>{this.handleHover();}} 
-            onMouseLeave={()=>{this.handleHover();}}
-            onClick={this.props.onClick}
+            onMouseEnter={ () => handleHover() } 
+            onMouseLeave={ () => handleHover() }
+            onClick={props.onClick}
           >
-            {this.props.children}  
-          </div>
-        {/* <div style={styles.line}/> */}
-      </div>  
-      )
-    }
-  }
+            {props.children}  
+        </div>
+            <div style={styles.line}/>
+        </div>  
+    </>
+};
+
+
+
+export default MenuItem;

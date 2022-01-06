@@ -1,28 +1,22 @@
 import { Menu } from "@material-ui/core";
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
-class MenuButton extends React.Component {
-    constructor(props){
-      super(props);
-      this.state={
-        open: this.props.open? this.props.open:false,
-        color: this.props.color? this.props.color:'black',
-      }
-    }
-  
-    componentWillReceiveProps(nextProps){
-      if(nextProps.open !== this.state.open){
-        this.setState({open:nextProps.open});
-      }
-    }
+const MenuButton = (props) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [color, setColor] = useState('black')
     
-    handleClick(){
-    this.setState({open:!this.state.open});
-    }
+    useEffect(() => {
+        if (props.open !== isOpen) {
+            setIsOpen(props.open)
+        }
+    }, [props.open]);
     
-    render(){
-      const styles = {
+    const handleClick = () => {
+        setIsOpen(!isOpen)
+    };
+
+    const styles = {
         container: {
           height: '32px',
           width: '32px',
@@ -36,34 +30,32 @@ class MenuButton extends React.Component {
         line: {
           height: '2px',
           width: '20px',
-          background: this.state.color,
+          background: color,
           transition: 'all 0.2s ease',
         },
         lineTop: {
-          transform: this.state.open ? 'rotate(45deg)':'none',
+          transform: isOpen ? 'rotate(45deg)':'none',
           transformOrigin: 'top left',
           marginBottom: '5px',
         },
         lineMiddle: {
-          opacity: this.state.open ? 0: 1,
-          transform: this.state.open ? 'translateX(-16px)':'none',
+          opacity: isOpen ? 0: 1,
+          transform: isOpen ? 'translateX(-16px)':'none',
         },
         lineBottom: {
-          transform: this.state.open ? 'translateX(-1px) rotate(-45deg)':'none',
+          transform: isOpen ? 'translateX(-1px) rotate(-45deg)':'none',
           transformOrigin: 'top left',
           marginTop: '5px',
-        },       
-      }
-      return(
+        }}
+
+    return <>
         <div style={styles.container} 
-          onClick={this.props.onClick ? this.props.onClick: 
-            ()=> {this.handleClick();}}>
+            onClick={props.onClick ? props.onClick : ()=> {handleClick()}}>
           <div style={{...styles.line,...styles.lineTop}}/>
           <div style={{...styles.line,...styles.lineMiddle}}/>
           <div style={{...styles.line,...styles.lineBottom}}/>
         </div>
-      )
-    }
-  }
+    </>
+};
 
-  export default MenuButton;
+export default MenuButton;

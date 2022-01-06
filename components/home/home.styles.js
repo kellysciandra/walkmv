@@ -18,35 +18,37 @@ const Text = styled.div`
     top: 1em;
     /* margin-top: 8em; */
 `
-const FormContainer = styled.div`
+const PetContainer = styled.div`
     font-family: 'Roboto Mono', monospace;
     font-weight: 400;
     color: black;
     background-color: rgb(255,78,83);
-    top: 6em;
-    right: 3em;
+    top: 5em;
     position: relative;
 
     input {
         font-family: 'Roboto Mono', monospace;
-        border: none;
-        display: flex;
+
+        position: relative;
+        top: 2em;
         color: black;
         background-color: rgb(255,78,83 );
         border-bottom: 1px solid black;
-        width: 150%;
+        width: 100%;
         outline: none;
     }
     button {
         font-family: 'Roboto Mono', monospace;
         cursor: pointer;
-  
+        width: 100%;
+        box-shadow: -6px 6px orange, -6px 6px orange, -6px 6px orange;
         border: 1px solid orange;
         background-color: rgb(255,78,83 );
         padding: 10px;
         color: black;
         font-size: 1em;
-        margin-top: 2em;
+        top: 5em;
+        position: relative;
         
     }
 `
@@ -65,19 +67,6 @@ const Logo = styled.div`
     }
 `;
 
-const Feet = styled.div`
-    background-image: url("feet.png");
-    position: absolute;
-    background-repeat: no-repeat;
-    width: 100px;
-    height: 100px;
-    
-    @media only screen and (max-width: 600px) {
-        top: -3em;
-        left: 12em;
-        opacity: .2;
-    }
-`;
 
 const WalkText = styled.div`
   
@@ -94,4 +83,4 @@ const WalkText = styled.div`
     }
 `
 
-export { Container, Text, FormContainer, Logo, WalkText, Feet }
+export { Container, Text, PetContainer, Logo, WalkText }

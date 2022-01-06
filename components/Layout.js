@@ -6,7 +6,6 @@ import styles from "./layout.module.css";
 import Navbar from "./navbar";
 
 Router.events.on("routeChangeStart", (url) => {
-  // console.log(`Loading: ${url}`);
   NProgress.start();
   NProgress.inc();
 });

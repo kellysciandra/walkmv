@@ -17,7 +17,6 @@ const Navbar = () => {
     const handleLinkClick = (val) => {
         setMenuOpen(false)
          router.push(`/${val}`)
-        
     };
 
     const menu = ['About','Services','Contact']
@@ -27,18 +26,16 @@ const Navbar = () => {
           style={{fontSize: '2em',  fontFamily:`'Roboto Mono', monospace`}} 
           key={index} 
           delay={`${index * 0.1}s`}
-          onClick={()=>{handleLinkClick(val);}}>{val}</MenuItem>)
-    });
+          onClick={ ()=> {handleLinkClick(val)} }>{val}</MenuItem>
+        )});
 
     return <>
         <NavContainer>
-
-         
             <HamburgerContainer>
-                <MenuButton open={menuOpen} onClick={()=>handleMenuClick()} color='white'/>
+                <MenuButton open={menuOpen} onClick={ () => handleMenuClick()} color='white'/>
             </HamburgerContainer>
             <Menu open={menuOpen}>
-                {menuItems}
+                {menuItems} 
             </Menu>
         </NavContainer>
     </>
