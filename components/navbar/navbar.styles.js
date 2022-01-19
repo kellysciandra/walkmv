@@ -15,8 +15,6 @@ const HamburgerContainer = styled.div`
     opacity: 0.9;
     display: flex;
     align-items: center;
-    background-color: rgb(255,78,83 );
-    width: 100%;
     color: white; 
 `
 

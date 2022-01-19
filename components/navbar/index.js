@@ -19,7 +19,7 @@ const Navbar = () => {
          router.push(`/${val}`)
     };
 
-    const menu = ['About','Services','Contact']
+    const menu = ['about','services','contact']
     const menuItems = menu.map((val,index)=>{
       return (
         <MenuItem

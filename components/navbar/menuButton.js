@@ -19,33 +19,34 @@ const MenuButton = (props) => {
     const styles = {
         container: {
           height: '32px',
-          width: '32px',
+          width: '170px',
           display:'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
           cursor: 'pointer',
-          padding: '4px',
+          padding: '2px',
+          marginTop: '3em'
         },
         line: {
-          height: '2px',
-          width: '20px',
-          background: color,
+          height: '50px',
+          width: '50px',
+          background: 'black',
           transition: 'all 0.2s ease',
         },
         lineTop: {
-          transform: isOpen ? 'rotate(45deg)':'none',
-          transformOrigin: 'top left',
-          marginBottom: '5px',
+          transform: isOpen ? 'rotate(180deg)':'none',
+          transformOrigin: 'bottom center',
+          marginBottom: '3px',
         },
         lineMiddle: {
           opacity: isOpen ? 0: 1,
           transform: isOpen ? 'translateX(-16px)':'none',
         },
         lineBottom: {
-          transform: isOpen ? 'translateX(-1px) rotate(-45deg)':'none',
-          transformOrigin: 'top left',
-          marginTop: '5px',
+          transform: isOpen ? 'translateX(-1px) rotate(-180deg)':'none',
+          transformOrigin: 'bottom center',
+          marginTop: '3px',
         }}
 
     return <>
